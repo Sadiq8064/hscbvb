@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-image: url('https://img2.chinadaily.com.cn/images/202008/07/5f2cc96ca3108348fce32dba.jpeg');
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+
+        .login-box {
+            background: rgba(255, 255, 255, 0.8);
+            width: 300px;
+            margin: 100px auto;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .login-box input[type="text"],
+        .login-box input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .login-box button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <h2>Login</h2>
+        <input type="text" id="srn" placeholder="Enter the first six digits of your SRN number">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="login()">Login</button>
+    </div>
+
+    <script>
+        function login() {
+            var srnInput = document.getElementById('srn').value;
+            var passwordInput = document.getElementById('password').value;
+
+            // Check if the first six characters of SRN are allowed
+            if (srnInput.length >= 6 && (srnInput.slice(0, 6) === '01fe21' || srnInput.slice(0, 6) === '01fe20')) {
+                // Check if the password is 'hsckle'
+                if (passwordInput === 'hsckle') {
+                    // Redirect to 'index.html'
+                    window.location.href = 'index.html';
+                } else {
+                    alert('Incorrect password. Please try again.');
+                }
+            } else {
+                alert('You are not allowed to login with the provided SRN.');
+            }
+        }
+    </script>
+</body>
+</html>
+
+
